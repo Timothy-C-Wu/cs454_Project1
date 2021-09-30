@@ -16,14 +16,14 @@ def count(start, transition):
     return num_strings
 
 def possible_strings(alphabet, start, length, dfa):
-    print(start)
+    #print(start)
     buffer = []
     pos_string = ""
     type(buffer)
     if start == length:
         start = 0
         for i in range(0, len(buffer)):
-            pos_string += buffer[i]
+            pos_string += buffer[i]     
         #print((pos_string))
         return pos_string
     else:
@@ -32,6 +32,7 @@ def possible_strings(alphabet, start, length, dfa):
             append =(dfa.read_input(str(start)))
             buffer.append(append)
             #print(buffer[0])
+            #print(i)
             possible_strings(alphabet, start+1, length, dfa)
 
 
@@ -54,6 +55,7 @@ def main():
     start = 0
     #print(dfa1.read_input('01231'))
     print_this = possible_strings(alphabet, start, n, dfa1)
+    print(print_this)
     #for i in range(0,len(print_this)):
         #print(print_this[i])
     #num_strings = pow(2, n)
