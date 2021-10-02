@@ -14,9 +14,31 @@ class myDFA:
 
 
 def count(los):
+    buffer = []
+    type(buffer)
+    valid_count = 0
+    isa = isb = isc = isd = False
     for i in range(len(los)):
-        
-    return count()
+        for j in range(len(los[i])):
+            buffer.append(los[i][j])
+            if len(buffer) == 6:
+                #print(buffer)
+                for x in range(len(buffer)):
+                    if buffer[x] == 'a':
+                        isa = True
+                    elif buffer[x] == 'b':
+                        isb = True
+                    elif buffer[x] == 'c':
+                        isc = True
+                    elif buffer[x] == 'd':
+                        isd = True
+                if isa is True and isb is True and isc is True and isd is True:
+                    buffer.pop(0)
+                else:
+                    isa = isb = isc = isd = False
+                    buffer.clear()
+                    break
+    return valid_count
 
 
 def possible_strings(alphabet, length, dfa, strings):
@@ -71,7 +93,7 @@ def main():
     los = possible_strings(alphabet, n, dfa1, strings)
     #print(print_this)
     #for i in range(0,len(los)):
-    #    print(los[i])
+    #    print(i, ' ', los[i])
     #print(len(los))
     # num_strings = pow(2, n)
     # num_loop = 0
@@ -79,7 +101,8 @@ def main():
     # for x in range(num_strings):
     # for i in range(n):
     # num_loop+= 1
-    count(los)
+    this_is_count = count(los)
+    print("this is count: ", this_is_count, '\n')
     # buffer.append(count())
     # print(buffer)
     # if
