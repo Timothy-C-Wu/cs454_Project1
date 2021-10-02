@@ -13,12 +13,13 @@ class myDFA:
         type(prev_state)
 
 
-def count(start, transition):
-    num_strings = 0
-    return num_strings
+def count(los):
+    for i in range(len(los)):
+        
+    return count()
 
 
-def possible_strings(alphabet, length, dfa):
+def possible_strings(alphabet, length, dfa, strings):
     inc = 0
 
     pos_string = ""
@@ -42,10 +43,10 @@ def possible_strings(alphabet, length, dfa):
         pos_string += dfa.read_input(str(i))
     for _set in product(list(pos_string), repeat=length):
         inc+=1
-        print(''.join(_set))
+        strings.append((''.join(_set)))
 
     print(inc)
-    return
+    return strings
 
 
 def main():
@@ -65,19 +66,20 @@ def main():
     #dfa_check= myDFA()
     alphabet = "abcd"
     n = 6
-    buffer = []
-    type(buffer)
-    print_this = possible_strings(alphabet, n, dfa1)
+    strings = []
+    type(strings)
+    los = possible_strings(alphabet, n, dfa1, strings)
     #print(print_this)
-    # for i in range(0,len(print_this)):
-    # print(print_this[i])
+    #for i in range(0,len(los)):
+    #    print(los[i])
+    #print(len(los))
     # num_strings = pow(2, n)
     # num_loop = 0
 
     # for x in range(num_strings):
     # for i in range(n):
     # num_loop+= 1
-    # count(start, transition)
+    count(los)
     # buffer.append(count())
     # print(buffer)
     # if
