@@ -19,7 +19,7 @@ def count(los):
     valid_count = 0
     isa = isb = isc = isd = False
     for i in range(len(los)):
-        for j in range(len(los[i])):
+        '''for j in range(len(los[i])):
             buffer.append(los[i][j])
             if len(buffer) == 6:
                 #print(buffer)
@@ -34,19 +34,20 @@ def count(los):
                         isd = True
                 if isa is True and isb is True and isc is True and isd is True:
                     buffer.pop(0)
+                    valid_count+= 1
                 else:
                     isa = isb = isc = isd = False
-                    buffer.clear()
-                    break
+                    buffer.clear()'''
+        if 'a' in los[i] and 'b' in los[i] and 'c' in los[i] and 'd' in los[i] in los[i]:
+            valid_count+= 1
+            #print(los[i])
     return valid_count
 
 
 def possible_strings(alphabet, length, dfa, strings):
     inc = 0
-
     pos_string = ""
-    '''
-    if start < length:
+    '''if start < length:
         # for j in range(length):
         j = 0
         for j in range(length):
@@ -67,8 +68,44 @@ def possible_strings(alphabet, length, dfa, strings):
         inc+=1
         strings.append((''.join(_set)))
 
-    print(inc)
+    #print(inc)
     return strings
+'''   inc = 0
+    valid = [length]
+    pos_string = ""
+
+    if start < length:
+        # for j in range(length):
+        j = 0
+        for j in range(length):
+            if start < 4:
+                pos_string += dfa.read_input(str(start))
+                start += 1
+                if start >= 4:
+                    num = 0
+                    while num < 4 and len(pos_string) < length:
+                        pos_string += dfa.read_input(str(num))
+                        num += 1
+        perm = list(permutations(pos_string))
+        print(perm)
+        print(len(perm))
+    for i in range(len(alphabet)):
+        pos_string += dfa.read_input(str(i))
+    return pos_string
+    i = 0
+    count = 0
+    for j in product(list(pos_string), repeat=length):
+        valid[0] = j
+        #print("before next funtion call: ", valid[0])
+
+        if count(valid, pos_string, length):
+            count += 1
+        inc+=1
+        i+=1
+    print(count)
+    print(inc)
+    return'''
+
 
 
 def main():
@@ -91,6 +128,8 @@ def main():
     strings = []
     type(strings)
     los = possible_strings(alphabet, n, dfa1, strings)
+    is_valid = count(los)
+    print(is_valid)
     #print(print_this)
     #for i in range(0,len(los)):
     #    print(i, ' ', los[i])
@@ -101,8 +140,8 @@ def main():
     # for x in range(num_strings):
     # for i in range(n):
     # num_loop+= 1
-    this_is_count = count(los)
-    print("this is count: ", this_is_count, '\n')
+    #this_is_count = count(los)
+    #print("this is count: ", this_is_count, '\n')
     # buffer.append(count())
     # print(buffer)
     # if
